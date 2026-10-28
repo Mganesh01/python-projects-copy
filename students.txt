@@ -1,0 +1,6 @@
+Alice - Python
+Bharat - Python
+Charlie - Data Science
+Diana - Web Development
+Ethan - AI
+Karthik - Java
