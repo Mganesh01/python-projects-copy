@@ -1,0 +1,69 @@
+"""Examples of common Python exception-handling patterns."""
+
+
+def check_job_application(experience: int, required_experience: int) -> None:
+    """Validate work experience before accepting a job application."""
+    try:
+        print("Applying for the job...")
+        if experience < required_experience:
+            raise ValueError("Minimum 2 years experience required.")
+        print("Application accepted!")
+    except ValueError as exc:
+        print(f"Application rejected: {exc}")
+
+
+def convert_age(value: str) -> None:
+    """Convert a string to an int and handle invalid input safely."""
+    try:
+        age = int(value)
+        print(f"Age successfully converted to {age}.")
+    except ValueError:
+        print("Invalid age value. Please enter digits only.")
+
+
+def add_values(a, b) -> None:
+    """Show the TypeError raised by mixing incompatible value types."""
+    try:
+        result = a + b
+        print(f"Result: {result}")
+    except TypeError:
+        print("Wrong data type: cannot add these values together.")
+
+
+def read_user_key() -> None:
+    """Access dictionary data safely and explain KeyError."""
+    user = {"name": "John"}
+    try:
+        print(user["age"])
+    except KeyError:
+        print("Key not found: 'age' is missing from the user data.")
+
+
+def read_list_item() -> None:
+    """Handle out-of-range index errors when reading a list."""
+    jobs = ["Python", "Java"]
+    try:
+        print(jobs[5])
+    except IndexError:
+        print("Index not found: the list is shorter than expected.")
+
+
+def validate_salary(salary: int) -> None:
+    """Raise and catch a custom business rule validation error."""
+    try:
+        if salary < 30000:
+            raise ValueError("Salary is too low for this role.")
+        print("Salary is valid.")
+    except ValueError as exc:
+        print(f"Salary validation failed: {exc}")
+    finally:
+        print("Application process completed.")
+
+
+if __name__ == "__main__":
+    check_job_application(1, 2)
+    convert_age("abc")
+    add_values(10, "10")
+    read_user_key()
+    read_list_item()
+    validate_salary(25000)

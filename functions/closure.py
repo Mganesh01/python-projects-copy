@@ -25,16 +25,19 @@ def create_discount(discount):
     # Inner function
     def calculate(price):
 
-        # 'discount' value ni inner function remember cheskundi
+        # Calculate the discounted price based on the outer function's discount value
         return price - (price * discount / 100)
 
-    # Inner function ni return chestunnam
+    # Return the inner function
     return calculate
 
-# 10% discount function create chestunnam
-discount_10 = create_discount(10)
-# 20% discount function create chestunnam
-discount_20 = create_discount(20)
+# Create a 10% discount function
+discount_10 = create_discount(10) #default discount 10%         
+
+print(discount_10(1000))  # Output: 900.0
+
+# Create a 20% discount function
+discount_20 = create_discount(20) # 
 
 # ₹1000 ki 10% discount
 print(discount_10(1000))
